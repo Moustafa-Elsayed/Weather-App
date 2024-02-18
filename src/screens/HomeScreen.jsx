@@ -1,14 +1,19 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StatusBar, Text, View} from 'react-native';
 import React from 'react';
 
 const HomeScreen = () => {
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <StatusBar
+        style="light"
+        animated={true}
+        translucent={true}
+        backgroundColor="transparent"
+      />
+      <Image blurRadius={20} source={require('../images/bg.jpg')} />
+      <Text>kdkfhk;</Text>
     </View>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});
