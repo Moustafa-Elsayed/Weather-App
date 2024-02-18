@@ -1,6 +1,13 @@
-import {Image, SafeAreaView, StatusBar, Text, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  StatusBar,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import React from 'react';
-import Search from '../components/Search';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = () => {
   return (
@@ -19,7 +26,13 @@ const HomeScreen = () => {
       <SafeAreaView className="flex flex-1">
         {/* search section */}
         <View style={{height: '7%'}} className="mx-4 relative z-50">
-          <Text>ndjjlflj</Text>
+          <View className="">
+            <TextInput
+              placeholder="search"
+              className="p-2 bg-white rounded-full h-10"
+            />
+            <FontAwesomeIcon name="heart-o" size={30} color="white" />
+          </View>
         </View>
       </SafeAreaView>
     </View>
