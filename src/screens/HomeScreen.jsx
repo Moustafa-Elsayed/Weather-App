@@ -1,6 +1,7 @@
 import {
   Image,
   SafeAreaView,
+  ScrollView,
   StatusBar,
   Text,
   TextInput,
@@ -14,6 +15,7 @@ import Windy from 'react-native-vector-icons/MaterialCommunityIcons';
 import Rainy from 'react-native-vector-icons/MaterialCommunityIcons';
 import Sunny from 'react-native-vector-icons/MaterialCommunityIcons';
 import Dialy from 'react-native-vector-icons/MaterialCommunityIcons';
+import {theme} from '../constants/theme';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -39,7 +41,9 @@ const HomeScreen = () => {
         <View style={{height: '7%'}} className="mx-4 relative z-50">
           <View
             className="flex-row justify-end items-center rounded-full "
-            style={{backgroundColor: showSearch ? 'white' : null}}>
+            style={{
+              backgroundColor: showSearch ? theme.bgWhite(0.2) : 'transparent',
+            }}>
             {showSearch ? (
               <TextInput
                 placeholder="Search City "
@@ -127,6 +131,47 @@ const HomeScreen = () => {
               <Dialy name="calendar-today" size={25} color="white" />
               <Text className="text-white text-xl">Daily Forecast</Text>
             </View>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              // contentContainerStyle={{paddingHorizontal: 15}}
+            >
+              <View
+                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
+                style={{backgroundColor: theme.bgWhite(0.2)}}>
+                <Sunny name="white-balance-sunny" size={25} color="white" />
+                <Text className="text-white">Monday</Text>
+                <Text className="text-white">23&#176;</Text>
+              </View>
+              <View
+                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
+                style={{backgroundColor: theme.bgWhite(0.2)}}>
+                <Sunny name="white-balance-sunny" size={25} color="white" />
+                <Text className="text-white">Monday</Text>
+                <Text className="text-white">23&#176;</Text>
+              </View>
+              <View
+                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
+                style={{backgroundColor: theme.bgWhite(0.2)}}>
+                <Sunny name="white-balance-sunny" size={25} color="white" />
+                <Text className="text-white">Monday</Text>
+                <Text className="text-white">23&#176;</Text>
+              </View>
+              <View
+                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
+                style={{backgroundColor: theme.bgWhite(0.2)}}>
+                <Sunny name="white-balance-sunny" size={25} color="white" />
+                <Text className="text-white">Monday</Text>
+                <Text className="text-white">23&#176;</Text>
+              </View>
+              <View
+                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
+                style={{backgroundColor: theme.bgWhite(0.2)}}>
+                <Sunny name="white-balance-sunny" size={25} color="white" />
+                <Text className="text-white">Monday</Text>
+                <Text className="text-white">23&#176;</Text>
+              </View>
+            </ScrollView>
           </View>
         </View>
       </SafeAreaView>

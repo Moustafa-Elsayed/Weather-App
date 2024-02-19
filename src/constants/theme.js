@@ -21,3 +21,8 @@ export const FONTS = {
   regular: 'Poppins-Regular',
   light: 'Poppins-Light',
 };
+
+
+export const theme = {
+  bgWhite: (opacity) => `rgba(255, 255, 255, ${opacity})`
+};
