@@ -87,7 +87,35 @@ const HomeScreen = () => {
           </Text>
           {/* weather image */}
           <View className="flex-row justify-center">
-            <Image source={require('../images/banner.png')} className="w-52 h-52" />
+            <Image
+              source={require('../images/banner.png')}
+              className="w-52 h-52"
+            />
+          </View>
+
+          {/* degree */}
+          <View className="space-y-2">
+            <Text className="text-center font-bold text-white text-6xl ml-5">
+              23&#176;
+            </Text>
+            <Text className="text-center tracking-widest text-white text-xl ml-5">
+              partly cloud
+            </Text>
+          </View>
+          {/* other states */}
+          <View className="mx-4 flex-row justify-between">
+            <View className="flex flex-row items-center space-x-2">
+              <MapIcon name="map-marker" size={25} color="black" />
+              <Text>hdfhg</Text>
+            </View>
+            <View className="flex flex-row items-center space-x-2">
+              <MapIcon name="map-marker" size={25} color="black" />
+              <Text>hdfhg</Text>
+            </View>
+            <View className="flex flex-row items-center space-x-2">
+              <MapIcon name="map-marker" size={25} color="black" />
+              <Text>hdfhg</Text>
+            </View>
           </View>
         </View>
       </SafeAreaView>
