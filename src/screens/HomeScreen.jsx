@@ -13,7 +13,7 @@ import MapIcon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
-  const [locations, setLocations] = useState([1, 2, 3]);
+  const [locations, setLocations] = useState([1, 2, 3,4]);
   return (
     <View className="flex-1 relative">
       <StatusBar
@@ -49,14 +49,21 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
           {locations.length > 0 && showSearch ? (
-            <View className="bg-white rounded-lg ">
+            <View className="bg-white rounded-3xl absolute top-16 w-full ">
               {locations.map((loc, index) => {
+                let showBaorder = index + 1 != locations.length;
+                let borderClass = showBaorder
+                  ? 'border-b-2 border-b-gray-400 '
+                  : '';
                 return (
                   <TouchableOpacity
                     key={index}
-                    className="flex-row items-center p-3 px-4 mb-1 border-0 border-b-2 border-b-gray-400 ">
+                    className={
+                      'flex-row items-center p-3 px-4 mb-1 border-0  ' +
+                      borderClass
+                    }>
                     <MapIcon name="map-marker" size={25} color="black" />
-                    <Text>lonadong</Text>
+                    <Text className="pl-2">londong,hsjd,hsdjhk</Text>
                   </TouchableOpacity>
                 );
               })}
