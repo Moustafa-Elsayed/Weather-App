@@ -2,7 +2,6 @@ import {
   Image,
   SafeAreaView,
   StatusBar,
-  Text,
   TextInput,
   View,
 } from 'react-native';
