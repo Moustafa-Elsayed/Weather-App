@@ -13,7 +13,10 @@ import MapIcon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
-  const [locations, setLocations] = useState([1, 2, 3,4]);
+  const [locations, setLocations] = useState([1, 2, 3, 4]);
+  const handleLocations = loc => {
+    console.log('location', loc);
+  };
   return (
     <View className="flex-1 relative">
       <StatusBar
@@ -61,14 +64,31 @@ const HomeScreen = () => {
                     className={
                       'flex-row items-center p-3 px-4 mb-1 border-0  ' +
                       borderClass
-                    }>
+                    }
+                    onPress={handleLocations(loc)}>
                     <MapIcon name="map-marker" size={25} color="black" />
-                    <Text className="pl-2">londong,hsjd,hsdjhk</Text>
+                    <Text className="ml-2 text-xl text-black">
+                      londong , united Kingdom
+                    </Text>
                   </TouchableOpacity>
                 );
               })}
             </View>
           ) : null}
+        </View>
+        {/* forecast section */}
+        <View className="mx-4 justify-around flex-1 mb-2">
+          {/* location */}
+          <Text className="text-center text-white text-2xl font-bold">
+            London
+            <Text className="text-lg font-semibold text-gray-300">
+              ,united kindom
+            </Text>
+          </Text>
+          {/* weather image */}
+          <View className="flex-row justify-center">
+            <Image source={require('../images/banner.png')} className="w-52 h-52" />
+          </View>
         </View>
       </SafeAreaView>
     </View>
