@@ -10,6 +10,10 @@ import {
 import React, {useState} from 'react';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MapIcon from 'react-native-vector-icons/FontAwesome';
+import Windy from 'react-native-vector-icons/MaterialCommunityIcons';
+import Rainy from 'react-native-vector-icons/MaterialCommunityIcons';
+import Sunny from 'react-native-vector-icons/MaterialCommunityIcons';
+import Dialy from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -105,16 +109,23 @@ const HomeScreen = () => {
           {/* other states */}
           <View className="mx-4 flex-row justify-between">
             <View className="flex flex-row items-center space-x-2">
-              <MapIcon name="map-marker" size={25} color="black" />
-              <Text>hdfhg</Text>
+              <Windy name="weather-windy" size={25} color="white" />
+              <Text className="text-white">22Km</Text>
             </View>
             <View className="flex flex-row items-center space-x-2">
-              <MapIcon name="map-marker" size={25} color="black" />
-              <Text>hdfhg</Text>
+              <Rainy name="weather-rainy" size={25} color="white" />
+              <Text className="text-white">23%</Text>
             </View>
             <View className="flex flex-row items-center space-x-2">
-              <MapIcon name="map-marker" size={25} color="black" />
-              <Text>hdfhg</Text>
+              <Sunny name="white-balance-sunny" size={25} color="white" />
+              <Text className="text-white">6:05Am</Text>
+            </View>
+          </View>
+          {/* daily weather */}
+          <View className="mb-2 space-y-3">
+            <View className="flex flex-row items-center space-x-2">
+              <Dialy name="calendar-today" size={25} color="white" />
+              <Text className="text-white text-xl">Daily Forecast</Text>
             </View>
           </View>
         </View>
