@@ -26,8 +26,10 @@ const HomeScreen = () => {
     console.log('location', loc);
   };
   const handleSearch = value => {
-fetchSearchEndPoint({cityName:value}).then(data=>{
-  setLocations(data)})  };
+    fetchSearchEndPoint({cityName: value}).then(data => {
+      setLocations(data);
+    });
+  };
   const handleChangeDebounce = useCallback(_.debounce(handleSearch, 1200), []);
   return (
     <View className="flex-1 relative">
@@ -54,6 +56,14 @@ fetchSearchEndPoint({cityName:value}).then(data=>{
               <TextInput
                 onChangeText={handleChangeDebounce}
                 placeholder="Search City "
+                placeholderTextColor={'white'}
+                style={{
+                  padding: 10,
+                  flex: 1,
+                  color: 'white',
+                  fontSize: 20,
+                  paddingHorizontal: 15,
+                }}
                 className="text-black pl-6 h-10 flex-1 "
               />
             ) : null}
