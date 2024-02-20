@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import MapIcon from 'react-native-vector-icons/FontAwesome';
 import Windy from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -16,13 +16,19 @@ import Rainy from 'react-native-vector-icons/MaterialCommunityIcons';
 import Sunny from 'react-native-vector-icons/MaterialCommunityIcons';
 import Dialy from 'react-native-vector-icons/MaterialCommunityIcons';
 import {theme} from '../constants/theme';
+import _ from 'lodash';
+import {fetchSearchEndPoint} from '../api/weather';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
-  const [locations, setLocations] = useState([1, 2, 3, 4]);
+  const [locations, setLocations] = useState([]);
   const handleLocations = loc => {
     console.log('location', loc);
   };
+  const handleSearch = value => {
+fetchSearchEndPoint({cityName:value}).then(data=>{
+  setLocations(data)})  };
+  const handleChangeDebounce = useCallback(_.debounce(handleSearch, 1200), []);
   return (
     <View className="flex-1 relative">
       <StatusBar
@@ -46,6 +52,7 @@ const HomeScreen = () => {
             }}>
             {showSearch ? (
               <TextInput
+                onChangeText={handleChangeDebounce}
                 placeholder="Search City "
                 className="text-black pl-6 h-10 flex-1 "
               />
@@ -76,7 +83,7 @@ const HomeScreen = () => {
                     onPress={handleLocations(loc)}>
                     <MapIcon name="map-marker" size={25} color="black" />
                     <Text className="ml-2 text-xl text-black">
-                      londong , united Kingdom
+                      {loc?.name},{loc?.country}
                     </Text>
                   </TouchableOpacity>
                 );

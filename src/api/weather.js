@@ -1,30 +1,25 @@
 import axios from 'axios';
-import {apiKey} from './constant';
+import { apiKey } from './constant';
 
-const forecastEndPiont =
-  params => `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityNAme}&days=${params.days}&aqi=no&alerts=no
-`;
-const searchEndPiont = params =>
-  `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityNAme}`;
+const forecastEndPoint = params => `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${params.cityName}&days=${params.days}&aqi=no&alerts=no`;
+const searchEndPoint = params => `https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${params.cityName}`;
 
-const apicall = async (endPoint, params) => {
-  const options = {
-    method: 'GET',
-    url: endPoint,
-  };
+const apiCall = async (endPoint) => {
   try {
-    const response = await axios.request(options);
+    const response = await axios.get(endPoint);
     return response.data;
   } catch (error) {
     console.log('error', error);
-    return {};
+    return {}; // or handle error as needed
   }
 };
 
-export const fetchForcatdata = params => {
-  return apicall(forecastEndPiont(params));
+export const fetchForecastData = params => {
+  const endPoint = forecastEndPoint(params);
+  return apiCall(endPoint);
 };
 
-export const fetchSearchEndPiont = params => {
-  return apicall(searchEndPiont(params));
+export const fetchSearchEndPoint = params => {
+  const endPoint = searchEndPoint(params);
+  return apiCall(endPoint);
 };
