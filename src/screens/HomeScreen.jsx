@@ -62,7 +62,9 @@ const HomeScreen = () => {
   return (
     <KeyboardAvoidingView
       className="flex-1 flex"
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={50}
+      >
       <View className="flex-1 relative">
         <StatusBar
           style="light"
