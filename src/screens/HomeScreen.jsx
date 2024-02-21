@@ -25,13 +25,7 @@ const HomeScreen = () => {
 
 
   const handleLocations = (loc) => {
-    console.log('location', loc);
-    fetchForecastData({
-      cityName:loc.name,
-      days:"7"
-    }).then(data=>{
-      console.log("forecast",data);
-    })
+   
   };
   const handleSearch = value => {
     fetchSearchEndPoint({cityName: value}).then(data => {
