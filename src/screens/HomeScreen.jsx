@@ -30,6 +30,33 @@ const HomeScreen = () => {
       setLocations(data);
     });
   };
+  const foreCatData = [
+    {
+      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
+      title: 'Monday',
+      degree: '23&#176;',
+    },
+    {
+      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
+      title: 'Monday',
+      degree: '23&#176;',
+    },
+    {
+      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
+      title: 'Monday',
+      degree: '23&#176;',
+    },
+    {
+      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
+      title: 'Monday',
+      degree: '23&#176;',
+    },
+    {
+      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
+      title: 'Monday',
+      degree: '23&#176;',
+    },
+  ];
   const handleChangeDebounce = useCallback(_.debounce(handleSearch, 1200), []);
   return (
     <View className="flex-1 relative">
@@ -153,41 +180,18 @@ const HomeScreen = () => {
               showsHorizontalScrollIndicator={false}
               // contentContainerStyle={{paddingHorizontal: 15}}
             >
-              <View
-                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
-                style={{backgroundColor: theme.bgWhite(0.2)}}>
-                <Sunny name="white-balance-sunny" size={25} color="white" />
-                <Text className="text-white">Monday</Text>
-                <Text className="text-white">23&#176;</Text>
-              </View>
-              <View
-                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
-                style={{backgroundColor: theme.bgWhite(0.2)}}>
-                <Sunny name="white-balance-sunny" size={25} color="white" />
-                <Text className="text-white">Monday</Text>
-                <Text className="text-white">23&#176;</Text>
-              </View>
-              <View
-                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
-                style={{backgroundColor: theme.bgWhite(0.2)}}>
-                <Sunny name="white-balance-sunny" size={25} color="white" />
-                <Text className="text-white">Monday</Text>
-                <Text className="text-white">23&#176;</Text>
-              </View>
-              <View
-                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
-                style={{backgroundColor: theme.bgWhite(0.2)}}>
-                <Sunny name="white-balance-sunny" size={25} color="white" />
-                <Text className="text-white">Monday</Text>
-                <Text className="text-white">23&#176;</Text>
-              </View>
-              <View
-                className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
-                style={{backgroundColor: theme.bgWhite(0.2)}}>
-                <Sunny name="white-balance-sunny" size={25} color="white" />
-                <Text className="text-white">Monday</Text>
-                <Text className="text-white">23&#176;</Text>
-              </View>
+              {foreCatData.map((item, index) => {
+                return (
+                  <View
+                    className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
+                    style={{backgroundColor: theme.bgWhite(0.2)}}
+                    key={index}>
+                    {item.icon}
+                    <Text className="text-white">{item.title}</Text>
+                    <Text className="text-white">{item.degree}</Text>
+                  </View>
+                );
+              })}
             </ScrollView>
           </View>
         </View>
