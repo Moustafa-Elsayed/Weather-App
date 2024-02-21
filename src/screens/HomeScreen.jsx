@@ -18,54 +18,35 @@ import Dialy from 'react-native-vector-icons/MaterialCommunityIcons';
 import {theme} from '../constants/theme';
 import _ from 'lodash';
 import {fetchForecastData, fetchSearchEndPoint} from '../api/weather';
+import { weatherIcon } from '../api/constant';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [locations, setLocations] = useState([]);
+  const [weather, setWeather] = useState({});
 
-
-  const handleLocations = (loc) => {
-    console.log('location', loc);
+  const handleLocations = loc => {
+    // console.log('location', loc);
+    setLocations([]);
     fetchForecastData({
-      cityName:loc.name,
-      days:"7"
-    }).then(data=>{
-      console.log("forecast",data);
-    })
-  };
-  const handleSearch = value => {
-    fetchSearchEndPoint({cityName: value}).then(data => {
-      setLocations(data);
+      cityName: loc.name,
+      days: '7',
+    }).then(data => {
+      setWeather(data);
+      console.log(data, 'forecast');
     });
   };
-  const foreCatData = [
-    {
-      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
-      title: 'Monday',
-      degree: '23&#176;',
-    },
-    {
-      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
-      title: 'Monday',
-      degree: '23&#176;',
-    },
-    {
-      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
-      title: 'Monday',
-      degree: '23&#176;',
-    },
-    {
-      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
-      title: 'Monday',
-      degree: '23&#176;',
-    },
-    {
-      icon: <Sunny name="white-balance-sunny" size={25} color="white" />,
-      title: 'Monday',
-      degree: '23&#176;',
-    },
-  ];
+
+  const handleSearch = value => {
+    if (value.length > 2) {
+      fetchSearchEndPoint({cityName: value}).then(data => {
+        setLocations(data);
+      });
+    }
+  };
+
   const handleChangeDebounce = useCallback(_.debounce(handleSearch, 1200), []);
+  const {current, location} = weather;
   return (
     <View className="flex-1 relative">
       <StatusBar
@@ -125,7 +106,7 @@ const HomeScreen = () => {
                       'flex-row items-center p-3 px-4 mb-1 border-0  ' +
                       borderClass
                     }
-                    onPress={handleLocations(loc)}>
+                    onPress={() => handleLocations(loc)}>
                     <MapIcon name="map-marker" size={25} color="black" />
                     <Text className="ml-2 text-xl text-black">
                       {loc?.name},{loc?.country}
@@ -140,15 +121,15 @@ const HomeScreen = () => {
         <View className="mx-4 justify-around flex-1 mb-2">
           {/* location */}
           <Text className="text-center text-white text-2xl font-bold">
-            London
+            {location?.name}
             <Text className="text-lg font-semibold text-gray-300">
-              ,united kindom
+              {" , "+location?.country}
             </Text>
           </Text>
           {/* weather image */}
           <View className="flex-row justify-center">
             <Image
-              source={require('../images/banner.png')}
+              source={weatherIcon[current?.condition?.text]}
               className="w-52 h-52"
             />
           </View>
@@ -156,21 +137,21 @@ const HomeScreen = () => {
           {/* degree */}
           <View className="space-y-2">
             <Text className="text-center font-bold text-white text-6xl ml-5">
-              23&#176;
+              {current?.temp_c}&#176;
             </Text>
             <Text className="text-center tracking-widest text-white text-xl ml-5">
-              partly cloud
+              {current?.condition.text}
             </Text>
           </View>
           {/* other states */}
           <View className="mx-4 flex-row justify-between">
             <View className="flex flex-row items-center space-x-2">
               <Windy name="weather-windy" size={25} color="white" />
-              <Text className="text-white">22Km</Text>
+              <Text className="text-white">{current?.wind_kph}Km</Text>
             </View>
             <View className="flex flex-row items-center space-x-2">
               <Rainy name="weather-rainy" size={25} color="white" />
-              <Text className="text-white">23%</Text>
+              <Text className="text-white">{current?.humidity}%</Text>
             </View>
             <View className="flex flex-row items-center space-x-2">
               <Sunny name="white-balance-sunny" size={25} color="white" />
@@ -188,15 +169,22 @@ const HomeScreen = () => {
               showsHorizontalScrollIndicator={false}
               // contentContainerStyle={{paddingHorizontal: 15}}
             >
-              {foreCatData.map((item, index) => {
+              {weather?.forecast?.forecastday?.map((item, index) => {
+                let date = new Date(item.date);
+                let options = {weekday: 'long'}; // 'weekday' instead of 'weakend'
+                let dayName = date.toLocaleDateString('en-US', options);
+                dayName = dayName.split(',')[0].trim(); // Extracting and trimming the day name
+
                 return (
                   <View
                     className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
                     style={{backgroundColor: theme.bgWhite(0.2)}}
                     key={index}>
-                    {item.icon}
-                    <Text className="text-white">{item.title}</Text>
-                    <Text className="text-white">{item.degree}</Text>
+                    <Sunny name="white-balance-sunny" size={25} color="white" />
+                    <Text className="text-white">{dayName}</Text>
+                    <Text className="text-white">
+                      {item?.day?.avgtemp_c}&#176;
+                    </Text>
                   </View>
                 );
               })}
