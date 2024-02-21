@@ -69,7 +69,7 @@ const HomeScreen = () => {
             ) : null}
 
             <TouchableOpacity
-              className="rounded-full p-3 m-1 bg-slate-300"
+              className="rounded-full p-3 m-1 bg-white"
               onPress={() => {
                 setShowSearch(!showSearch);
               }}>
