@@ -17,13 +17,21 @@ import Sunny from 'react-native-vector-icons/MaterialCommunityIcons';
 import Dialy from 'react-native-vector-icons/MaterialCommunityIcons';
 import {theme} from '../constants/theme';
 import _ from 'lodash';
-import {fetchSearchEndPoint} from '../api/weather';
+import {fetchForecastData, fetchSearchEndPoint} from '../api/weather';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [locations, setLocations] = useState([]);
-  const handleLocations = loc => {
+
+
+  const handleLocations = (loc) => {
     console.log('location', loc);
+    fetchForecastData({
+      cityName:loc.name,
+      days:"7"
+    }).then(data=>{
+      console.log("forecast",data);
+    })
   };
   const handleSearch = value => {
     fetchSearchEndPoint({cityName: value}).then(data => {
