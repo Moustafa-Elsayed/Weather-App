@@ -18,7 +18,7 @@ import Dialy from 'react-native-vector-icons/MaterialCommunityIcons';
 import {theme} from '../constants/theme';
 import _ from 'lodash';
 import {fetchForecastData, fetchSearchEndPoint} from '../api/weather';
-import { weatherIcon } from '../api/constant';
+import {weatherIcon} from '../api/constant';
 
 const HomeScreen = () => {
   const [showSearch, setShowSearch] = useState(false);
@@ -123,7 +123,7 @@ const HomeScreen = () => {
           <Text className="text-center text-white text-2xl font-bold">
             {location?.name}
             <Text className="text-lg font-semibold text-gray-300">
-              {" , "+location?.country}
+              {' , ' + location?.country}
             </Text>
           </Text>
           {/* weather image */}
@@ -180,7 +180,7 @@ const HomeScreen = () => {
                     className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
                     style={{backgroundColor: theme.bgWhite(0.2)}}
                     key={index}>
-                    <Sunny name="white-balance-sunny" size={25} color="white" />
+                    source={weatherIcon[current?.condition?.text]}
                     <Text className="text-white">{dayName}</Text>
                     <Text className="text-white">
                       {item?.day?.avgtemp_c}&#176;
