@@ -120,12 +120,14 @@ const HomeScreen = () => {
         {/* forecast section */}
         <View className="mx-4 justify-around flex-1 mb-2">
           {/* location */}
-          <Text className="text-center text-white text-2xl font-bold">
-            {location?.name}
-            <Text className="text-lg font-semibold text-gray-300">
-              {' , ' + location?.country}
+        
+            <Text className="text-center text-white text-2xl font-bold ">
+              {location?.name}
+              <Text className="text-lg font-semibold text-gray-200">
+                {" , "+ location?.country}
+              </Text>
             </Text>
-          </Text>
+
           {/* weather image */}
           <View className="flex-row justify-center">
             <Image
@@ -180,8 +182,11 @@ const HomeScreen = () => {
                     className="flex justify-center items-center w-24 rounded-3xl space-y-3 py-3 mr-4"
                     style={{backgroundColor: theme.bgWhite(0.2)}}
                     key={index}>
-                    source={weatherIcon[current?.condition?.text]}
-                    <Text className="text-white">{dayName}</Text>
+                    <Image
+                      source={{uri: 'http:' + item?.day?.condition?.icon}}
+                      className="w-14 h-12"
+                    />
+                    <Text className="text-white text-lg">{dayName}</Text>
                     <Text className="text-white">
                       {item?.day?.avgtemp_c}&#176;
                     </Text>
