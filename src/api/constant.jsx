@@ -4,6 +4,7 @@ export const weatherIcon = {
   'Moderate rain ': require('../images/moderate-rain.png'),
   'Patchy rain possible': require('../images/Patchy rain possible.png'),
   "Sunny": require('../images/sunny.png'),
+  "Clear": require('../images/sunny.png'),
   "Overcast": require('../images/Overcast.png'),
   "Cloudy": require('../images/Cloudy.png'),
   'Light rain': require('../images/light.png'),
