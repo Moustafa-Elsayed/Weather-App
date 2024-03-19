@@ -1,5 +1,5 @@
 <h1 align="center">Weather App</h1>
-<P>This is a Amazon Clone  WebSite built with NextJs,Typescript ,Tailwind,Redux Toolkit,Redux persist and Auth Next</P>
+<P>This is a Weahter App build with:React Native CLI,Tailwind and Weather API</P>
 <p align="center"><img src="https://i.ibb.co/gzYTtxz/weather.png" width="400" height="800&quot;/" alt="project"></p>
 
 
