@@ -2,12 +2,10 @@
 <P>This is a Amazon Clone  WebSite built with NextJs,Typescript ,Tailwind,Redux Toolkit,Redux persist and Auth Next</P>
 <p align="center"><img src="https://i.ibb.co/gzYTtxz/weather.png" alt="project"></p>
 
-<h2>🚀 Demo</h2>
 
-https://amazon-clone-git-master-moustafa-elsayeds-projects.vercel.app/
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.ibb.co/hWBtgQ9/amazon.png" alt="shields" width="800" height="400&quot;/">
+<img src="https://i.ibb.co/cFcFwsb/Screenshot-1708608616.png" alt="shields" width="800" height="400&quot;/">
 
 
 <h2>🛠️ Installation Steps:</h2>
@@ -15,7 +13,7 @@ https://amazon-clone-git-master-moustafa-elsayeds-projects.vercel.app/
 <p>1. Clone the repository</p>
 
 ```
-git clone https://github.com/Moustafa-Elsayed/amazon-clone.git
+git clone https://github.com/Moustafa-Elsayed/Weather.git
 ```
 
 <p>2. Install npm modules</p>
@@ -24,22 +22,11 @@ git clone https://github.com/Moustafa-Elsayed/amazon-clone.git
 yarn install
 ```
 
-<p>3. Start development server using below command</p>
-
-```
-yarn dev
-```
-
-<p>4. Create production build using below command</p>
-
-```
-yarn build
-```
 
 <p>5. Check production build locally using below command</p>
 
 ```
-yarn start
+ yarn android 
 ```
 
   
@@ -48,11 +35,10 @@ yarn start
 
 Technologies used in the project:
 
-*  [Next.js](https://nextjs.org/)
-*  [React Js](https://react.dev/learn) 
+*  [React Native](https://nextjs.org/)
+*  [Vector icons](https://react.dev/learn) 
 *  [TailwindCSS](https://tailwindcss.com/)  
-*  [Materila ui](https://mui.com/material-ui/getting-started/) 
-*  [Resend Email ](https://resend.com/emails/69382737-8835-4c5a-a6ed-12f5b160910c)
+*  [API Weather](https://mui.com/material-ui/getting-started/) 
 
 
 
