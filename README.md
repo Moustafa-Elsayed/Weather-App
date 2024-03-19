@@ -1,6 +1,6 @@
 <h1 align="center">Amazon Clone  WebSite</h1>
 <P>This is a Amazon Clone  WebSite built with NextJs,Typescript ,Tailwind,Redux Toolkit,Redux persist and Auth Next</P>
-<p align="center"><img src="https://i.ibb.co/hWBtgQ9/amazon.png" alt="project"></p>
+<p align="center"><img src="https://i.ibb.co/gzYTtxz/weather.png" alt="project"></p>
 
 <h2>🚀 Demo</h2>
 
