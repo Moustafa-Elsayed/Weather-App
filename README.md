@@ -5,8 +5,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://i.ibb.co/cFcFwsb/Screenshot-1708608616.png" alt="shields" width="400" height="800&quot;/">
-<img src="https://i.ibb.co/T1Y9dPk/Screenshot-1708610067.png" alt="shields" width="400" height="800&quot;/">
+<img src="https://i.ibb.co/cFcFwsb/Screenshot-1708608616.png" alt="shields" width="400" height="800&quot;/"> <img src="https://i.ibb.co/T1Y9dPk/Screenshot-1708610067.png" alt="shields" width="400" height="800&quot;/">
 
 
 
